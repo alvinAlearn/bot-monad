@@ -1,0 +1,59 @@
+rpc_url: "https://rpc.testnet.monad.xyz"
+private_key: "0xYOUR_PRIVATE_KEY"
+router_address: "0xYOUR_ROUTER_ADDRESS"
+
+# Minimal ABI untuk Router
+router_abi:
+  - inputs: 
+      - internalType: "uint256"
+        name: "amountOutMin"
+        type: "uint256"
+      - internalType: "address[]"
+        name: "path"
+        type: "address[]"
+      - internalType: "address"
+        name: "to"
+        type: "address"
+      - internalType: "uint256"
+        name: "deadline"
+        type: "uint256"
+    name: "swapExactETHForTokens"
+    outputs: 
+      - internalType: "uint256[]"
+        name: "amounts"
+        type: "uint256[]"
+    stateMutability: "payable"
+    type: "function"
+
+  - inputs:
+      - internalType: "uint256"
+        name: "amountIn"
+        type: "uint256"
+      - internalType: "uint256"
+        name: "amountOutMin"
+        type: "uint256"
+      - internalType: "address[]"
+        name: "path"
+        type: "address[]"
+      - internalType: "address"
+        name: "to"
+        type: "address"
+      - internalType: "uint256"
+        name: "deadline"
+        type: "uint256"
+    name: "swapExactTokensForETH"
+    outputs:
+      - internalType: "uint256[]"
+        name: "amounts"
+        type: "uint256[]"
+    stateMutability: "nonpayable"
+    type: "function"
+
+token_contracts:
+  - "0xf817257fed379853cDe0fa4F97AB987181B1E5Ea"  # USDC
+  - "0x88b8E2161DEDC77EF4ab7585569D2415a1C1055D"  # USDT
+  # Tambahkan sisanya...
+
+amount_mon_to_swap: 0.001   # dalam ETH
+amount_token_to_swap: 1     # dalam satuan token (bukan wei)
+delay_between_swaps: 5      # delay antar swap (detik)
